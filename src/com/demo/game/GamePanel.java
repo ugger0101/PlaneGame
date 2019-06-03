@@ -3,15 +3,13 @@ package com.demo.game;
 import javax.swing.*;
 import java.applet.Applet;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class GamePanel extends JPanel implements Runnable, KeyListener {
+public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMotionListener {
 
 
     public static final int PANEL_WIDTH = GameFrame.Frame_width - 7;
@@ -66,6 +64,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         planeBullets = new ArrayList<PlaneBullet>();//自己个子弹
         booms = new ArrayList<Boom>();//初始化爆炸
         prop = new Prop();//prop
+        this.addMouseMotionListener(this);
+        this.addMouseListener(this);
 
 
     }
@@ -192,7 +192,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
                         plane.move(0, (GamePanel.PANEL_HEIGHT + plane.height));
 
                         //移除鼠标监听器，暂时无法移动
-
+                        this.removeMouseListener(this);
+                        this.removeMouseMotionListener(this);
                         plane.setrestart(40);//设置英雄机重启，需要延迟40个50ms
                         plane.setalive(false);
 
@@ -261,7 +262,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 
 
                     //移除鼠标监听器，暂时无法移动
-
+                    this.removeMouseListener(this);
+                    this.removeMouseMotionListener(this);
                     plane.setrestart(40);//设置英雄机重启，需要延迟40个50ms(参见thread.sleep)
                     plane.setalive(false);
 
@@ -339,69 +341,44 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
 
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-
-    }
-    public void planmove(){
-        if (left) {
-            plane.x -= speed;
-        }
-        if (right) {
-            plane.x += speed;
-        }
-        if (up) {
-            plane.y -= speed;
-        }
-        if (down) {
-            plane.y += speed;
-        }
-        if(isShoot)
-        plane.shoot();
-    }
-    @Override
-    public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_LEFT:
-                 left = true;
-                break;
-            case KeyEvent.VK_UP:
-                up = true ;
-                break;
-            case KeyEvent.VK_RIGHT:
-                right = true;
-                break;
-            case KeyEvent.VK_DOWN:
-                down = true;
-                break;
-            case KeyEvent.VK_ENTER:
-                isShoot = true;
-                break;
-        }
-    }
-
-
 
     @Override
-    public void keyReleased(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_LEFT:
-                left = false;
-                break;
-            case KeyEvent.VK_UP:
-                up = false;
-                break;
-            case KeyEvent.VK_RIGHT:
-                right = false;
-                break;
-            case KeyEvent.VK_DOWN:
-                down = false;
-                break;
-            case KeyEvent.VK_ENTER:
-                isShoot = false;
-                break;
-        }
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        hero_bullet.play();
+        PlaneBullet heroBullet=plane.shoot();
+        planeBullets.add(heroBullet);
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
+        plane.move(e.getX(),e.getY());
     }
 }
 
