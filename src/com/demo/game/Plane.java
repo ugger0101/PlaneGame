@@ -41,7 +41,7 @@ public class Plane extends GameObject {
     }
     //子弹需要从飞机前头中心射出
     public PlaneBullet shoot(){
-        return new PlaneBullet(this.x+(this.width-PlaneBullet.width)/2,this.y-PlaneBullet.height);
+        return new PlaneBullet(this.x+(this.width-PlaneBullet.width)/2,this.y-10);
 
     }
 

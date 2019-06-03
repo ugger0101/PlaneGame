@@ -24,7 +24,7 @@ public class PlaneBullet extends GameObject {
     public void move(){
         this.y -= y_increase;
         this.x -= x_increase;
-
+        img_cont++;
         this.img = image[img_cont/5%2];
 
     }
