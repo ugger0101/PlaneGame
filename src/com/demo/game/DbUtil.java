@@ -11,9 +11,9 @@ import java.sql.Statement;
  */
 public class DbUtil extends GamePanel {
     static String className = "com.mysql.jdbc.Driver";
-    static String url = "jdbc:mysql://127.0.0.1:3306/dsdgnm?useSSL=true";
+    static String url = "jdbc:mysql://127.0.0.1:3306/ugger?useSSL=true";
     static String user = "root";
-    static String password = "000482xQ";
+    static String password = "123456789";
     static Connection connection = null;
     // 1、获取数据连接
 
