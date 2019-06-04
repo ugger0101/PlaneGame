@@ -5,9 +5,13 @@ import java.awt.*;
 public class Enemy extends GameObject{
     public static Image[] image;
     public int score;
-
+    public void setScore(int score) {
+        this.score = score;
+    }
     public Enemy() {
+
         super(image[0],(int)(Math.random()*GamePanel.PANEL_WIDTH-50), -70, 50, 50, 0, 4);
+        score=100;//分数为100分
     }
 
 

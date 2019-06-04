@@ -113,12 +113,12 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
     }
     //数据库接入
 
-    public void database(int total_score){
-
-
-        maxscore =  //最大分数
-
-    }
+//    public void database(int total_score){
+//
+//
+//        maxscore =  //最大分数
+//
+//    }
 
     @Override
     public void run() {
@@ -355,7 +355,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
     @Override
     public void mousePressed(MouseEvent e) {
         hero_bullet.play();
-        PlaneBullet heroBullet=plane.shoot();
+        PlaneBullet heroBullet = plane.shoot();
         planeBullets.add(heroBullet);
 
     }
