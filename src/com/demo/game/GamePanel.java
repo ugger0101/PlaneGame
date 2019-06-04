@@ -356,43 +356,77 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
 
 
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mouseDragged(MouseEvent e) {
+
+        plane.move(e.getX(),e.getY());
+    }
+
+
+
+
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
+        //System.out.println(e.getX()+","+e.getY());
+        plane.move(e.getX(),e.getY());
+
 
     }
+
+
+
+
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+
+    }
+
+
+
+
 
     @Override
     public void mousePressed(MouseEvent e) {
         hero_bullet.play();
-        PlaneBullet heroBullet = plane.shoot();
+        PlaneBullet heroBullet=plane.shoot();
         planeBullets.add(heroBullet);
 
     }
 
+
+
+
+
     @Override
     public void mouseReleased(MouseEvent e) {
+        // TODO Auto-generated method stub
 
     }
+
+
+
+
 
     @Override
     public void mouseEntered(MouseEvent e) {
 
     }
 
+
+
+
+
     @Override
     public void mouseExited(MouseEvent e) {
+        // TODO Auto-generated method stub
 
     }
 
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        plane.move(e.getX(),e.getY());
-    }
 
-    @Override
-    public void mouseMoved(MouseEvent e) {
 
-        plane.move(e.getX(),e.getY());
-    }
 }
 
 
