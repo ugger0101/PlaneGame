@@ -177,7 +177,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
                     planeBullet.move();
                     //4.2是否越界
 
-                    if (planeBullet.outofBound()) {
+                    if (planeBullet.outofBounds()) {
                         planeBullets.remove(i);
                         i--;
                     }
@@ -337,7 +337,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
                 }
                 repaint();
                 try {
-                    Thread.sleep(30);//30ms
+                    Thread.sleep(30);
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();

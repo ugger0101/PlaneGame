@@ -12,8 +12,8 @@ public class PlaneBullet extends GameObject {
     //静态初始化块初始图片
     static {
         image_fire = new Image[2];
-        image_fire[1] = Tools.loadImage("images/fire.gif");
-        image_fire[2] = Tools.loadImage("images/fire_1.gif");
+        image_fire[0] = Tools.loadImage("images/fire.gif");
+        image_fire[1] = Tools.loadImage("images/fire_1.gif");
     }
 
     public PlaneBullet(int x, int y) {
@@ -28,7 +28,7 @@ public class PlaneBullet extends GameObject {
         this.img = image_fire[img_cont/5%2];
 
     }
-    public boolean outofBound(){
+    public boolean outofBounds(){
         return this.y<0;
     }
 
