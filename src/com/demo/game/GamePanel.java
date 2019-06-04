@@ -14,7 +14,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
 
     public static final int PANEL_WIDTH = GameFrame.Frame_width - 7;
     public static final int PANEL_HEIGHT = GameFrame.Frame_height - 30;
-    public static final int MAX_Enemy = 6;
+    public static final int MAX_Enemy = 9;
     public static final int speed = 4;
     public boolean up = false;
     public boolean down = false;
@@ -292,7 +292,8 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
                     if (plane.isAlive() == false && plane.getrestart() == 0) {
                         plane.move(GamePanel.PANEL_WIDTH / 2 - 35, GamePanel.PANEL_HEIGHT - 70);
                         plane.setalive(true);
-
+                        addMouseListener(this);
+                        addMouseMotionListener(this);
 
                         //添加一个全屏爆炸
 
@@ -300,8 +301,8 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
                         Boom boom = new Boom(0, 0, PANEL_WIDTH, PANEL_HEIGHT, 0, 0);
                         booms.add(boom);
 
-                        for (int m = 0; m < enemys.size(); m++) {//清除屏幕得分
-                            Enemy ePlane = enemys.get(m);
+                        for (int i = 0; i < enemys.size(); i++) {//清除屏幕得分
+                            Enemy ePlane = enemys.get(i);
                             total_score += ePlane.getScore();
 
 
@@ -372,7 +373,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
 
     @Override
     public void mouseDragged(MouseEvent e) {
-
+        plane.move(e.getX(),e.getY());
     }
 
     @Override
