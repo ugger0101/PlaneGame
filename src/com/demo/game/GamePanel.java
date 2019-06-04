@@ -15,7 +15,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
     public static final int PANEL_WIDTH = GameFrame.Frame_width - 7;
     public static final int PANEL_HEIGHT = GameFrame.Frame_height - 30;
     public static final int MAX_Enemy = 9;
-   
+
 
 
     private Background background;//天空背景对象
@@ -111,7 +111,14 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
 
 
     }
+    //数据库接入
+    
+    public void database(int total_score){
 
+
+        maxscore =  //最大分数
+
+    }
 
     @Override
     public void run() {
