@@ -111,7 +111,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
 
 
     }
-    数据库接入
+    //数据库接入
 
     public void database(int total_score){
             int maxscore;
