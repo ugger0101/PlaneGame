@@ -15,12 +15,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
     public static final int PANEL_WIDTH = GameFrame.Frame_width - 7;
     public static final int PANEL_HEIGHT = GameFrame.Frame_height - 30;
     public static final int MAX_Enemy = 9;
-    public static final int speed = 4;
-    public boolean up = false;
-    public boolean down = false;
-    public boolean right = false;
-    public boolean left = false;
-    public boolean isShoot = false;
+   
 
 
     private Background background;//天空背景对象
@@ -35,6 +30,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
 
 
     private int total_score = 0;//游戏总得分
+    public int maxscore;
     //AudioClip对象提供  play loop（循环） stop
     java.applet.AudioClip all_bomb, enemy_bomb, bg, hero_bomb, hero_bullet;
 
@@ -104,6 +100,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
         g.setFont(new Font("宋体", Font.BOLD, 30));
         g.drawString("生命数" + plane.getLife(), 10, 30);
         g.drawString("分数" + total_score, 10, 80);
+        g.drawString("最高分"+maxscore,10,130);
         if (plane.getLife() == 0) {
 
             g.setColor(Color.red);
