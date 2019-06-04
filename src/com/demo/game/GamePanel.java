@@ -63,10 +63,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
         this.addMouseMotionListener(this);
         this.addMouseListener(this);
 
-        if(total_score>CRUD.select()) {
-            CRUD.update1(total_score);
-        }
-        maxscore =  CRUD.select();//最大分数
+
     }
 
 
@@ -108,6 +105,10 @@ public class GamePanel extends JPanel implements Runnable, MouseListener,MouseMo
         g.setFont(new Font("宋体", Font.BOLD, 30));
         g.drawString("生命数" + plane.getLife(), 10, 30);
         g.drawString("分数" + total_score, 10, 80);
+        if(total_score>CRUD.select()) {
+            CRUD.update1(total_score);
+        }
+        maxscore =  CRUD.select();//最大分数
         g.drawString("最高分"+maxscore,10,130);
         if (plane.getLife() == 0) {
 
